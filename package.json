@@ -1,0 +1,26 @@
+{
+  "name": "rift-frontline",
+  "private": true,
+  "version": "0.1.0",
+  "description": "RIFT FRONTLINE — a browser-based 5v5 FPS-MOBA prototype.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n web,server -c cyan,magenta \"npm run dev -w @rift/web\" \"npm run dev -w @rift/server\"",
+    "dev:web": "npm run dev -w @rift/web",
+    "dev:server": "npm run dev -w @rift/server",
+    "build": "npm run build -w @rift/shared && npm run build -w @rift/server && npm run build -w @rift/web",
+    "typecheck": "npm run typecheck -w @rift/shared && npm run typecheck -w @rift/server && npm run typecheck -w @rift/web",
+    "test": "npm run test -w @rift/shared && npm run test -w @rift/server",
+    "lint": "echo \"(lint not yet configured)\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.0",
+    "typescript": "5.6.3"
+  }
+}
